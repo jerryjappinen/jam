@@ -1,5 +1,7 @@
 # Jam: JavaScript-based language for markup
 
+**NOTE:** This repo doesn't currently have anything that actually works.
+
 I can't belive this hasn't been done before. Here you go then.
 
 Jam, short for **Ja**vaScript **markup**, is a JS-like language that compiles into standards-compliant HTML. It is primarily targeted towards web application development, but can be used in any context where preprocessing HTML seems like a good idea.
