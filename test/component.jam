@@ -1,0 +1,32 @@
+form (@submit.prevent: onSubmit) {
+
+	// Jam is not ideal for inline markup, but it can be done
+	p {
+		'Please fill in this input form' br
+		'(But do ' strong { 'not' } ' take too long)'
+	}
+
+	// You could also use Markdown
+	markdown {
+		Please fill in this input form<br>
+		(But do **not** take too long)
+	}
+
+	// Or fall back to HTML
+	raw {
+		<p>
+			Please fill in this input form<br>
+			(But do <strong>not</strong> take too long)
+		</p>
+	}
+
+	// Some basic tags
+	p {
+		input (
+			v-model: myProp
+		)
+
+		input (type: 'submit')
+	}
+
+}

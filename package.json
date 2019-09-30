@@ -1,0 +1,17 @@
+{
+  "name": "jml",
+  "version": "0.0.1",
+  "description": "",
+  "main": "jml.js",
+  "dependencies": {
+    "nearley": "^2.15.0",
+    "pegjs": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "pegjs jml.pegjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

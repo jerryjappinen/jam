@@ -1,0 +1,16 @@
+(
+	const foo = 'Hello world!'
+) {
+
+	// Outputs `<p>Hello world!</p>`
+	p {
+		foo
+	}
+
+}
+
+// Throws an error
+// `foo` is not available outside the scope
+p {
+	foo
+}
