@@ -13,34 +13,34 @@ The syntax is heavily inspired by JavaScipt and CSS - the dominating languages u
 ```jam
 form.my-class (@submit.prevent: onSubmit) {
 
-	// Jam is not ideal for inline markup, but it can be done
-	p {
-		'Please fill in this input form' br
-		'(But do ' strong { 'not' } ' take too long)'
-	}
+  // Jam is not ideal for inline markup, but it can be done
+  p {
+    'Please fill in this input form' br
+    '(But do ' strong { 'not' } ' take too long)'
+  }
 
-	// You could also use Markdown
-	markdown {
-		Please fill in this input form<br>
-		(But do **not** take too long)
-	}
+  // You could also use Markdown
+  markdown {
+    Please fill in this input form<br>
+    (But do **not** take too long)
+  }
 
-	// Or fall back to HTML
-	raw {
-		<p>
-			Please fill in this input form<br>
-			(But do <strong>not</strong> take too long)
-		</p>
-	}
+  // Or fall back to HTML
+  raw {
+    <p>
+      Please fill in this input form<br>
+      (But do <strong>not</strong> take too long)
+    </p>
+  }
 
-	// Some basic tags
-	p {
-		input (
-			v-model: myProp
-		)
+  // Some basic tags
+  p {
+    input (
+      v-model: myProp
+    )
 
-		input (type: 'submit')
-	}
+    input (type: 'submit')
+  }
 
 }
 ```
@@ -59,20 +59,20 @@ Currently web development centers around three core pillars: HTML (structure), C
 
 ```CSS
 .foo {
-	color: red;
+  color: red;
 }
 ```
 
 ```html
 <pre>
-	<code class="foo">This text is red</code>
+  <code class="foo">This text is red</code>
 </pre>
 ```
 
 ```javascript
 const foo = []
 if (bar) {
-	foo.push('bar')
+  foo.push('bar')
 }
 ```
 

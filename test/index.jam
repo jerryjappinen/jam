@@ -1,172 +1,172 @@
 head {
 
-	meta (charset: 'utf-8')
+  meta (charset: 'utf-8')
 
-	meta (
-		http-equiv: 'X-UA-Compatible',
-		content: 'IE=edge'
-	)
+  meta (
+    http-equiv: 'X-UA-Compatible',
+    content: 'IE=edge'
+  )
 
-	title {
-		config.meta.title
-	}
+  title {
+    config.meta.title
+  }
 
-	meta (
-		name: 'application-name',
-		content: config.meta.title
-	)
+  meta (
+    name: 'application-name',
+    content: config.meta.title
+  )
 
-	if (config.meta.description) {
-		meta (
-			name: 'description',
-			content: config.meta.description
-		)
-	}
+  if (config.meta.description) {
+    meta (
+      name: 'description',
+      content: config.meta.description
+    )
+  }
 
-	meta (
-		name 'apple-mobile-web-app-capable'
-		content 'yes'
-	)
+  meta (
+    name 'apple-mobile-web-app-capable'
+    content 'yes'
+  )
 
-	style (type: 'text/css') {'
-		body {
-			-webkit-text-size-adjust: none;
-			-moz-text-size-adjust: none;
-			-ms-text-size-adjust: none;
-		}
-	'}
+  style (type: 'text/css') {'
+    body {
+      -webkit-text-size-adjust: none;
+      -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+    }
+  '}
 
-	link (
-		rel: 'shortcut icon',
-		href: config.paths.static + config.paths.faviconFilename
-	)
+  link (
+    rel: 'shortcut icon',
+    href: config.paths.static + config.paths.faviconFilename
+  )
 
-	link (
-		rel: 'apple-touch-icon',
-		href: config.paths.static + config.paths.appleIconFilename
-	)
+  link (
+    rel: 'apple-touch-icon',
+    href: config.paths.static + config.paths.appleIconFilename
+  )
 
-	// Scoped code
-	scope (
-		const robotRules = []
-		if (config.meta.robotRules) {
-			config.meta.robotRules.forEach(robotRule, () => {
-				robotRules.push(robotRule.toUpperCase())
-			})
-		}
-	) {
+  // Scoped code
+  scope (
+    const robotRules = []
+    if (config.meta.robotRules) {
+      config.meta.robotRules.forEach(robotRule, () => {
+        robotRules.push(robotRule.toUpperCase())
+      })
+    }
+  ) {
 
-		if (robotRules.length) {
-			meta (
-				name: 'robots',
-				content: robotRules.join(', ')
-			)
-		}
+    if (robotRules.length) {
+      meta (
+        name: 'robots',
+        content: robotRules.join(', ')
+      )
+    }
 
-	}
+  }
 
-	if (config.meta.appStore.appId) {
-		scope (
-			const appStoreDefinitions = []
+  if (config.meta.appStore.appId) {
+    scope (
+      const appStoreDefinitions = []
 
-			appStoreDefinitions.push('app-id=' + config.meta.appStore.appId);
+      appStoreDefinitions.push('app-id=' + config.meta.appStore.appId);
 
-			if (config.meta.appStore.affiliate && config.meta.appStore.affiliate.length) {
-				appStoreDefinitions.push('affiliate-data=' + config.meta.appStore.affiliate);
-			}
+      if (config.meta.appStore.affiliate && config.meta.appStore.affiliate.length) {
+        appStoreDefinitions.push('affiliate-data=' + config.meta.appStore.affiliate);
+      }
 
-			if (config.meta.appStore.affiliate && config.meta.appStore.affiliate.length) {
-				appStoreDefinitions.push('app-argument=' + config.meta.appStore.appArgument);
-			}
+      if (config.meta.appStore.affiliate && config.meta.appStore.affiliate.length) {
+        appStoreDefinitions.push('app-argument=' + config.meta.appStore.appArgument);
+      }
 
-		) {
+    ) {
 
-			if (appStoreDefinitions.length) {
-				meta (
-					name: 'apple-itunes-app',
-					content: appStoreDefinitions.join(', ')
-				)
-			}
+      if (appStoreDefinitions.length) {
+        meta (
+          name: 'apple-itunes-app',
+          content: appStoreDefinitions.join(', ')
+        )
+      }
 
-		}
-	}
+    }
+  }
 
-	// Touch highlight settings
-	if (!config.meta.defaultTouchHighlight) {
+  // Touch highlight settings
+  if (!config.meta.defaultTouchHighlight) {
 
-		meta (
-			name: 'msapplication-tap-highlight',
-			content: 'no'
-		)
+    meta (
+      name: 'msapplication-tap-highlight',
+      content: 'no'
+    )
 
-		style {'
-			body {
-				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-				-webkit-tap-highlight-color: transparent;
-			}
-		'}
-	}
+    style {'
+      body {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+      }
+    '}
+  }
 
-	// Links to static CSS files
-	for (link in config.paths.styleLinks) {
-		link (
-			rel: 'stylesheet',
-			type: 'text/css',
-			href: link
-		)
-	}
+  // Links to static CSS files
+  for (link in config.paths.styleLinks) {
+    link (
+      rel: 'stylesheet',
+      type: 'text/css',
+      href: link
+    )
+  }
 
 }
 
 body {
 
-	div#app.some-class-name {
+  div#app.some-class-name {
 
-		pre {
-			code {"
+    pre {
+      code {"
 
-				// Basic syntax
-				tag-name (
-					some-prop: values.someProp,
-					other-prop: 'string',
-					@weird.prop-name: 'val',
+        // Basic syntax
+        tag-name (
+          some-prop: values.someProp,
+          other-prop: 'string',
+          @weird.prop-name: 'val',
 
-					// ...but should be able to write
-					prop-name: myValue, // Refers to value in context
-					prop-name: 'myValue' // String value,
+          // ...but should be able to write
+          prop-name: myValue, // Refers to value in context
+          prop-name: 'myValue' // String value,
 
-					// Preprocessed into HTML with another binding syntax
-					:prop-name: 'myValue',
-					prop-name: '\"myValue\"'
+          // Preprocessed into HTML with another binding syntax
+          :prop-name: 'myValue',
+          prop-name: '\"myValue\"'
 
-				) {
-					if (config.foo) {
-						nested-tag
-						another-nested-tag (foo: 'bar')
-					}
-				}
+        ) {
+          if (config.foo) {
+            nested-tag
+            another-nested-tag (foo: 'bar')
+          }
+        }
 
-				form (@submit.prevent: onSubmit) {
-					input (v-model: myProp)
-				}
+        form (@submit.prevent: onSubmit) {
+          input (v-model: myProp)
+        }
 
-				// Escaping keywords
-				'if'(foo: 'bar') // renders `<if foo=\"bar\" />`
-				'for'(foo: 'bar') // renders `<for foo=\"bar\" />`
-				'else'(foo: 'bar') // renders `<else foo=\"bar\" />`
-				'scope'(foo: 'bar') // renders `<scope foo=\"bar\" />`
+        // Escaping keywords
+        'if'(foo: 'bar') // renders `<if foo=\"bar\" />`
+        'for'(foo: 'bar') // renders `<for foo=\"bar\" />`
+        'else'(foo: 'bar') // renders `<else foo=\"bar\" />`
+        'scope'(foo: 'bar') // renders `<scope foo=\"bar\" />`
 
-			"}
-		}
+      "}
+    }
 
-	}
+  }
 
-	// Links to static JS files
-	for (link in config.paths.scriptLinks) {
-		script (
-			type: 'text/javascript',
-			src: link
-		)
-	}
+  // Links to static JS files
+  for (link in config.paths.scriptLinks) {
+    script (
+      type: 'text/javascript',
+      src: link
+    )
+  }
 
 }
