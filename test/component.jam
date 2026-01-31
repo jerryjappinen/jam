@@ -1,4 +1,4 @@
-form (@submit.prevent: onSubmit) {
+main {
 
   // Jam is not ideal for inline markup, but it can be done
 	h1 { `Sign in to ${app_name}` }
@@ -23,7 +23,7 @@ form (@submit.prevent: onSubmit) {
   }
 
   // Form tags
-  form#login-form {
+  form#login-form (@submit.prevent: onSubmit) {
     input.textfield.textfield-secondary (
       v-model: myProp
     )
