@@ -1,32 +1,38 @@
 form (@submit.prevent: onSubmit) {
 
   // Jam is not ideal for inline markup, but it can be done
-  p {
+	h1 { `Sign in to ${app_name}` }
+
+  p.form-message {
     'Please fill in this input form' br
     '(But do ' strong { 'not' } ' take too long)'
   }
 
   // You could also use Markdown
-  markdown {
-    Please fill in this input form<br>
+  md {
+    Please fill in this input form  
     (But do **not** take too long)
   }
 
   // Or fall back to HTML
-  raw {
+  html {
     <p>
       Please fill in this input form<br>
       (But do <strong>not</strong> take too long)
     </p>
   }
 
-  // Some basic tags
-  p {
-    input (
+  // Form tags
+  form#login-form {
+    input.textfield.textfield-secondary (
       v-model: myProp
     )
 
-    input (type: 'submit')
+    input.primary-button (type: 'submit')
   }
+
+	p.form-footer-message {
+		`We hope you like this service.` em { `Thank you ${user.first_name}!` }
+	}
 
 }
